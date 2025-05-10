@@ -44,8 +44,9 @@
       "favicon": "/favicon.ico"
     },
     "repository": {
-      "url": "https://gitlab.com/mywildancloud/docubook",
-      "editPathTemplate": "/blob/main/{filePath}"
+      "url": "https://github.com/gitfromwildan/docubook",
+      "editPathTemplate": "/blob/main/{filePath}",
+      "editLink": true
     },
     "routes": [
     {
