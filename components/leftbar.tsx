@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { Logo, NavMenu } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
-import { AlignLeftIcon, ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
+import { AlignLeftIcon, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { FooterButtons } from "@/components/footer";
 import { DialogTitle } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -33,9 +33,9 @@ export function Leftbar() {
           onClick={() => setCollapsed((prev) => !prev)}
         >
           {collapsed ? (
-            <ArrowRightFromLine size={18} />
+            <PanelLeftOpen size={18} />
           ) : (
-            <ArrowLeftFromLine size={18} />
+            <PanelLeftClose size={18} />
           )}
         </Button>
       </div>
