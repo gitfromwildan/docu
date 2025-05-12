@@ -1,6 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
 import { page_routes } from "@/lib/routes-config";
-import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import { getMetadata } from "@/app/layout";
 import { CopyCommand } from "@/components/home/copycommand";

@@ -22,7 +22,7 @@ export function Leftbar() {
   return (
     <aside
       className={`sticky lg:flex hidden top-16 h-[calc(100vh-4rem)] border-r bg-background transition-all duration-300
-      ${collapsed ? "w-[0px]" : "w-[250px]"} flex flex-col pr-2`}
+      ${collapsed ? "w-[48px]" : "w-[250px]"} flex flex-col pr-2`}
     >
       {/* Toggle Button */}
       <div className="absolute top-0 right-0 py-2 px-0 ml-6 z-10">

@@ -1,14 +1,15 @@
 import { getMetadata } from "@/app/layout";
-export const metadata = getMetadata({
-  title: "Showcase",
-  description: "This is where we highlight the coolest, cleanest, and most creative docs made with Docu.",
-});
 import { AuroraText } from "@/components/ui/aurora";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+
+export const metadata = getMetadata({
+  title: "Showcase",
+  description: "This is where we highlight the coolest, cleanest, and most creative docs made with Docu.",
+});
 
 const cards = [
   {
