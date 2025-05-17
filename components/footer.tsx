@@ -1,8 +1,38 @@
 import Link from "next/link";
 import { ModeToggle } from "@/components/theme-toggle";
-import docuConfig from "@/docu.json";
 import AuroraText from "./ui/aurora";
-import * as LucideIcons from "lucide-react"; // Import all icons
+import docuData from "@/docu.json";
+import * as LucideIcons from "lucide-react";
+
+// Define types for docu.json
+interface SocialItem {
+  name: string;
+  url: string;
+  iconName: string;
+}
+
+interface FooterConfig {
+  copyright: string;
+  social?: SocialItem[];
+}
+
+interface MetaConfig {
+  title: string;
+  description: string;
+  baseURL: string;
+  favicon: string;
+}
+
+interface DocuConfig {
+  footer: FooterConfig;
+  meta: MetaConfig;
+  navbar: any;
+  repository: any;
+  routes: any[];
+}
+
+// Type assertion for docu.json
+const docuConfig = docuData as DocuConfig;
 
 export function Footer() {
   const { footer } = docuConfig;
@@ -19,7 +49,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col items-center justify-center w-full gap-4 mt-4 lg:items-end lg:w-2/5">
             <p className="text-center text-muted-foreground">
-                © {new Date().getFullYear()} {footer.copyright} - <MadeWith />
+                Copyright © {new Date().getFullYear()} {footer.copyright} - <MadeWith />
             </p>
             <div className="hidden lg:flex">
                 <ModeToggle />
@@ -34,7 +64,7 @@ export function FooterButtons() {
   const footer = docuConfig?.footer;
 
   // Jangan render apapun jika tidak ada data sosial
-  if (!footer?.social || !Array.isArray(footer.social) || footer.social.length === 0) {
+  if (!footer || !Array.isArray(footer.social) || footer.social.length === 0) {
     return null;
   }
 
