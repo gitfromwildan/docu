@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
@@ -106,12 +106,28 @@ export default function PlaygroundPage() {
   }, []);
 
   useEffect(() => {
-    // Update line count when markdown content changes
-    const lines = markdown.split('\n').length;
-    setLineCount(Math.max(lines, 1));
+    const lines = markdown.split('\n');
+    setLineCount(lines.length);
   }, [markdown]);
 
-  // Sync scroll position between editor and line numbers
+  const syncScroll = useCallback((e: React.UIEvent<HTMLTextAreaElement>) => {
+    const lineNumbers = document.querySelector('.editor-line-numbers');
+    if (lineNumbers && e.currentTarget) {
+      lineNumbers.scrollTop = e.currentTarget.scrollTop;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (editorRef.current) {
+      requestAnimationFrame(() => {
+        if (editorRef.current) {
+          editorRef.current.scrollTop = editorRef.current.scrollHeight;
+          syncScroll({ currentTarget: editorRef.current } as React.UIEvent<HTMLTextAreaElement>);
+        }
+      });
+    }
+  }, [markdown, syncScroll]);
+
   useEffect(() => {
     const textarea = editorRef.current;
     const lineNumbers = lineNumbersRef.current;
@@ -193,11 +209,21 @@ export default function PlaygroundPage() {
     const before = markdown.substring(0, start);
     const after = markdown.substring(end);
 
+    // Add 2 new lines before and after the inserted content
     const needsLeadingNewline = before && !before.endsWith('\n\n') ? '\n\n' : '';
     const needsTrailingNewline = after && !after.startsWith('\n\n') ? '\n\n' : '';
 
-    const newText = `${before}${needsLeadingNewline}${text}${needsTrailingNewline}${after}`;
+    // Ensure the text itself doesn't start or end with newlines
+    const trimmedText = text.trim();
+    const newText = `${before}${needsLeadingNewline}${trimmedText}${needsTrailingNewline}${after}`;
     setMarkdown(newText);
+
+    // Set cursor position after the inserted content
+    const newCursorPosition = start + (needsLeadingNewline ? 2 : 0) + trimmedText.length + (needsTrailingNewline ? 2 : 0);
+    setTimeout(() => {
+      textArea.setSelectionRange(newCursorPosition, newCursorPosition);
+      textArea.focus();
+    }, 0);
 
     requestAnimationFrame(() => {
         textArea.focus();
@@ -215,19 +241,16 @@ export default function PlaygroundPage() {
       "flex flex-col transition-all duration-200",
       isFullscreen ? "fixed inset-0 z-50 bg-background" : "min-h-[calc(100vh-4rem)]"
     )}>
-      <div className="border-b bg-background">
-        <div className="py-8 px-2">
+      <div className="bg-background">
+        <div className="pt-6 px-2">
           <div className="flex flex-col gap-1">
             <h1 className="text-2xl font-extrabold">Docu<span className="text-primary text-lg ml-1">PLAY</span></h1>
-            <p className="text-lg text-muted-foreground mt-2">
-              Test and experiment with DocuBook markdown components in real-time
-            </p>
           </div>
         </div>
       </div>
 
-      <div className="flex-1 py-8 px-2">
-        <div className="flex flex-col h-full pb-12">
+      <div className="flex-1 py-4 px-2">
+        <div className="relative flex-1 h-full" style={{ position: 'relative' }}>
           <ScrollArea className="flex-1 border rounded-lg">
             <div className="sticky top-0 z-20 bg-background border-b">
               <div className="flex items-center justify-between p-2 bg-muted/40">
@@ -370,21 +393,58 @@ export default function PlaygroundPage() {
                 </DropdownMenu>
               </div>
             </div>
-            <div className="editor-container">
-              <div className="editor-line-numbers" ref={lineNumbersRef}>
-                <div className="editor-line-numbers-content">
-                  {Array.from({ length: lineCount }).map((_, i) => (
-                    <div key={i} data-line-number={i + 1} />
-                  ))}
-                </div>
+            <div className="relative h-full">
+              <div
+                ref={lineNumbersRef}
+                className="
+                  absolute inset-y-0 left-0 w-10
+                  py-4 px-2 text-right text-gray-500
+                  select-none border-r text-sm
+                  leading-relaxed font-mono overflow-hidden
+                  bg-background z-10
+                "
+              >
+                {Array.from({ length: lineCount }).map((_, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      height: '1.5em',
+                      lineHeight: '1.5em',
+                      paddingRight: '0.5em'
+                    }}
+                  >
+                    {i + 1}
+                  </div>
+                ))}
               </div>
               <textarea
-                    ref={editorRef}
-                    value={markdown}
-                    onChange={(e) => setMarkdown(e.target.value)}
-                    className="editor-textarea"
-                    spellCheck={false}
-                    placeholder="Type '/' for commands..."
+                ref={editorRef}
+                value={markdown}
+                onChange={(e) => setMarkdown(e.target.value)}
+                className="editor-textarea"
+                spellCheck={false}
+                placeholder="Press '/' to open commands..."
+                onScroll={syncScroll}
+                style={{
+                  scrollBehavior: 'smooth',
+                  height: '100%',
+                  width: '100%',
+                  padding: '1rem 1rem 1rem 3.5rem',
+                  margin: 0,
+                  lineHeight: '1.5',
+                  fontFamily: 'monospace',
+                  border: 'none',
+                  resize: 'none',
+                  outline: 'none',
+                  background: 'transparent',
+                  color: 'inherit',
+                  fontSize: '14px',
+                  whiteSpace: 'pre',
+                  overflow: 'auto',
+                  tabSize: 2,
+                  position: 'relative',
+                  zIndex: 1
+                }}
                     />
             </div>
           </ScrollArea>
