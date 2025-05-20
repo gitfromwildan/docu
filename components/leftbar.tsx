@@ -16,32 +16,44 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import DocsMenu from "@/components/docs-menu";
 import { ModeToggle } from "@/components/theme-toggle";
 
+// Toggle Button Component
+export function ToggleButton({
+  collapsed,
+  onToggle
+}: {
+  collapsed: boolean,
+  onToggle: () => void
+}) {
+  return (
+    <div className="absolute top-0 right-0 py-6 z-10 -mt-4">
+      <Button
+        size="icon"
+        variant="outline"
+        className="hover:bg-transparent hover:text-inherit border-none text-muted-foreground"
+        onClick={onToggle}
+      >
+        {collapsed ? (
+          <PanelLeftOpen size={18} />
+        ) : (
+          <PanelLeftClose size={18} />
+        )}
+      </Button>
+    </div>
+  )
+}
+
 export function Leftbar() {
   const [collapsed, setCollapsed] = useState(false);
+  const toggleCollapse = () => setCollapsed(prev => !prev);
 
   return (
     <aside
       className={`sticky lg:flex hidden top-16 h-[calc(100vh-4rem)] border-r bg-background transition-all duration-300
-      ${collapsed ? "w-[48px]" : "w-[250px]"} flex flex-col pr-2`}
+      ${collapsed ? "w-[24px]" : "w-[240px]"} flex flex-col pr-2`}
     >
-      {/* Toggle Button */}
-      <div className="absolute top-0 right-0 py-6 px-0 ml-6 z-10 -mt-4">
-        <Button
-          size="icon"
-          variant="outline"
-          className="hover:bg-transparent hover:text-inherit border-none text-muted-foreground"
-          onClick={() => setCollapsed((prev) => !prev)}
-        >
-          {collapsed ? (
-            <PanelLeftOpen size={18} />
-          ) : (
-            <PanelLeftClose size={18} />
-          )}
-        </Button>
-      </div>
-
+      <ToggleButton collapsed={collapsed} onToggle={toggleCollapse} />
       {/* Scrollable DocsMenu */}
-      <ScrollArea className="flex-1 px-2 pb-4">
+      <ScrollArea className="flex-1 px-0.5 pb-4">
         {!collapsed && <DocsMenu />}
       </ScrollArea>
     </aside>

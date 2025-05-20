@@ -1,3 +1,35 @@
+## [1.10.0] - 2025-05-21
+
+> Sidebar Improvements and Mobile TOC Enhancements
+
+### Added
+
+- New reusable ToggleButton component with animation
+- Mobile-friendly Table of Contents (TOC) component
+- Click-outside handler for better mobile navigation
+- Smooth scroll behavior for TOC navigation
+- Active section highlighting in TOC
+
+### Improved
+
+- Sidebar now has a collapsible design
+- Enhanced mobile responsiveness for TOC
+- Better visual hierarchy in sidebar navigation
+- Smoother animations for sidebar toggle
+- Optimized TOC performance with intersection observer
+- Improved accessibility with proper ARIA labels
+- Better spacing and alignment in mobile view
+
+### Fixed
+
+- Fixed sidebar toggle button positioning
+- Resolved TOC highlighting issues during scroll
+- Fixed z-index conflicts in mobile view
+- Addressed minor UI glitches in dark mode
+- Fixed TOC not updating on route changes
+- Resolved scroll jank on mobile devices
+- Fixed incorrect active state in navigation
+
 ## [1.9.0] - 2025-05-19
 
 > New Keyboard component to show keyboard shortcut on docs page
