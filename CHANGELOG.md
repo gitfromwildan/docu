@@ -30,6 +30,11 @@
 - Resolved scroll jank on mobile devices
 - Fixed incorrect active state in navigation
 
+### Deprecated
+
+- no longer support changelog.md
+- no longer support changelog/page.tsx remove on future update
+
 ## [1.9.0] - 2025-05-19
 
 > New Keyboard component to show keyboard shortcut on docs page

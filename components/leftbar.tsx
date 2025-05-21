@@ -49,7 +49,7 @@ export function Leftbar() {
   return (
     <aside
       className={`sticky lg:flex hidden top-16 h-[calc(100vh-4rem)] border-r bg-background transition-all duration-300
-      ${collapsed ? "w-[24px]" : "w-[240px]"} flex flex-col pr-2`}
+      ${collapsed ? "w-[24px]" : "w-[280px]"} flex flex-col pr-2`}
     >
       <ToggleButton collapsed={collapsed} onToggle={toggleCollapse} />
       {/* Scrollable DocsMenu */}

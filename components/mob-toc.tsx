@@ -36,7 +36,6 @@ export default function MobToc({ tocs }: MobTocProps) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   // Use custom hooks
-  const isScrolled = useScrollPosition(0.5);
   const { activeId, setActiveId } = useActiveSection(tocs);
 
   // Only show on /docs pages
@@ -79,7 +78,6 @@ export default function MobToc({ tocs }: MobTocProps) {
 
   return (
     <AnimatePresence>
-      {isScrolled && (
         <motion.div
           ref={tocRef}
           className="lg:hidden fixed top-16 left-0 right-0 z-50"
@@ -89,7 +87,7 @@ export default function MobToc({ tocs }: MobTocProps) {
           transition={{ duration: 0.2, ease: 'easeInOut' }}
         >
           <div className="w-full bg-background/95 backdrop-blur-sm border-b border-stone-200 dark:border-stone-800 shadow-sm">
-            <div className="px-8 py-2">
+            <div className="md:px-8 px-4 py-2">
               <Button
                 variant="ghost"
                 size="sm"
@@ -125,7 +123,6 @@ export default function MobToc({ tocs }: MobTocProps) {
             </div>
           </div>
         </motion.div>
-      )}
     </AnimatePresence>
   );
 }
