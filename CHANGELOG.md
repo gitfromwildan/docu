@@ -1,3 +1,24 @@
+## [1.10.1] - 2025-05-24
+
+> Accessibility Improvements and Bug Fixes
+
+### Fixed
+- Added missing DialogDescription components for better accessibility
+- Fixed image aspect ratio issues in navbar logo
+- Resolved console warnings for missing image sizes
+- Improved keyboard navigation in search component
+- Fixed mobile layout for search result items
+
+### Improved
+- Added proper ARIA labels for screen readers
+- Enhanced focus management in dialogs
+- Optimized image loading with proper sizing attributes
+- Better mobile experience with responsive design fixes
+
+### Removed
+- Remove blog page
+- Remove blog functions on markdown
+
 ## [1.10.0] - 2025-05-21
 
 > Sidebar Improvements and Mobile TOC Enhancements

@@ -16,7 +16,7 @@ export default function Home() {
       <Link
         href="/changelog" className="flex items-center gap-2 py-6">
         <InteractiveHoverButton>
-            DocuBook v1.10.0
+            DocuBook v1.10.1
         </InteractiveHoverButton>
       </Link>
       <div className="w-full max-w-[800px] pb-8">
