@@ -23,6 +23,19 @@ Here is a basic example of using the Release Note component:
 </Release>
 ```
 
+<Accordion title="Render As" defaultOpen={true}>
+<Release version="1.10.1" date="2025-05-24" title="Accessibility Improvements and Bug Fixes">
+  <Changes type="added">
+    - New feature to improve accessibility
+    - Keyboard navigation support for dialog components
+  </Changes>
+  <Changes type="fixed">
+    - Bug fix for mobile menu
+    - Fixed loading issues on documentation pages
+  </Changes>
+</Release>
+</Accordion>
+
 ## Release Component
 
 The `Release` component is used to display key information about a release version, such as version number, release date, and title.
@@ -86,9 +99,7 @@ The `Changes` component is used to group changes by category with appropriate ic
 Here is a complete example of using the Release Note component in an MDX file:
 
 ````plaintext
-<div className="sr-only">
-### v 1.10.1
-</div>
+<!-- hidden heading for TOC -->
 
 <Release version="1.10.1" date="2025-05-24" title="Accessibility Improvements and Bug Fixes">
   <Changes type="added">
@@ -116,4 +127,4 @@ Here is a complete example of using the Release Note component in an MDX file:
 1. **Date Format**: Use a consistent date format for all releases.
 2. **Version Ordering**: Arrange versions in reverse chronological order (newest version at the top).
 3. **List Items**: You can use standard Markdown list format (`-` or `*`) or write text directly, the component will handle the formatting.
-4. **TOC**: Use hidden headings to ensure each version is detected in the Table of Contents.
+4. **TOC**: Use hidden headings to ensure each version is detected in the Table of Contents. Use `<div className="sr-only">### v 1.10.1</div>`
