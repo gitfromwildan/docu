@@ -25,6 +25,7 @@ import Button from "@/components/markdown/ButtonMdx";
 import Accordion from "@/components/markdown/AccordionMdx";
 import CardGroup from "@/components/markdown/CardGroupMdx";
 import Kbd from "@/components/markdown/KeyboardMdx";
+import { Release, Changes } from "@/components/markdown/ReleaseMdx";
 
 // add custom components
 const components = {
@@ -46,6 +47,8 @@ const components = {
   Accordion,
   CardGroup,
   Kbd,
+  Release,
+  Changes,
 };
 
 // can be used for other pages like blogs, Guides etc
@@ -179,12 +182,12 @@ const postProcess = () => (tree: any) => {
   });
 };
 
-export type Author = {
-  avatar?: string;
-  handle: string;
-  username: string;
-  handleUrl: string;
-};
+// export type Author = {
+//   avatar?: string;
+//   handle: string;
+//   username: string;
+//   handleUrl: string;
+// };
 
 // Blog related types and functions have been removed
 /*

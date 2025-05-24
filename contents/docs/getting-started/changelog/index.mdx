@@ -4,9 +4,43 @@ description: List of latest changes and updates on DocuBook
 date: 24-05-2025
 ---
 
-This changelog contains a list of all the changes made to the DocuBook template. It will be updated with each new release and will include information about new features, bug fixes, and other improvements.
+## Version History
 
-<Release version="1.10.1" title="Accessibility Improvements and Bug Fixes">
+> This changelog contains a list of all the changes made to the DocuBook template. It will be updated with each new release and will include information about new features, bug fixes, and other improvements.
+
+<div className="sr-only">
+### v 1.11.0
+</div>
+
+<Release version="1.11.0" date="2025-05-25" title="New Release Note components support multiple products or multiple changelogs">
+  <Changes type="added">
+    - New ReleaseNote component for structured changelog display
+    - Added support for categorized changes (added, fixed, improved, deprecated, removed)
+    - Integrated Lucide icons for better visual hierarchy
+    - Support for multiple release notes
+  </Changes>
+
+  <Changes type="improved">
+    - Enhanced documentation with comprehensive usage examples
+    - Better component organization and styling
+    - Semantic versioning support
+    - Nested release notes support
+  </Changes>
+
+  <Changes type="removed">
+    - Removed old changelog page in favor of the new ReleaseMdx component
+    - Removed changelog.md
+    - Removed changelog/page.tsx
+    - Removed changelog.ts
+    - Removed components/changelog
+  </Changes>
+</Release>
+
+<div className="sr-only">
+### v 1.10.1
+</div>
+
+<Release version="1.10.1" date="2025-05-24" title="Accessibility Improvements and Bug Fixes">
   <Changes type="fixed">
     - Added missing DialogDescription components for better accessibility
     - Fixed image aspect ratio issues in navbar logo
@@ -28,7 +62,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.10.0" title="Sidebar Improvements and Mobile TOC Enhancements">
+<div className="sr-only">
+### v 1.10.0
+</div>
+
+<Release version="1.10.0" date="2025-05-21" title="Sidebar Improvements and Mobile TOC Enhancements">
   <Changes type="added">
     - New reusable ToggleButton component with animation
     - Mobile-friendly Table of Contents (TOC) component
@@ -63,7 +101,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.9.0" title="New Keyboard component to show keyboard shortcut on docs page">
+<div className="sr-only">
+### v 1.9.0
+</div>
+
+<Release version="1.9.0" date="2025-05-19" title="New Keyboard component to show keyboard shortcut on docs page">
   <Changes type="added">
     - New Keyboard component with props show, type, children
     - Snippet keyboard component
@@ -77,7 +119,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.8.5" title="Add sponsor card on single docs page">
+<div className="sr-only">
+### v 1.8.5
+</div>
+
+<Release version="1.8.5" date="2025-05-10" title="Add sponsor card on single docs page">
   <Changes type="added">
     - Expandables Leftbar
     - Sponsor badges or ads
@@ -103,12 +149,16 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.8.0" title="Now looks more modern and clean which is a big change in layout and design">
+<div className="sr-only">
+### v 1.8.0
+</div>
+
+<Release version="1.8.0" date="2025-03-01" title="Now looks more modern and clean which is a big change in layout and design">
   <Changes type="added">
     - Social footer
     - Toggle group
-    - Site description {meta.description} in footer
-    - Site title {meta.title} in footer
+    - Site description in footer
+    - Site title in footer
   </Changes>
 
   <Changes type="improved">
@@ -124,7 +174,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.7.0" title="Remove the old function in the search dialog and replace it with a new and more optimal feature">
+<div className="sr-only">
+### v 1.7.0
+</div>
+
+<Release version="1.7.0" date="2025-02-23" title="Remove the old function in the search dialog and replace it with a new and more optimal feature">
   <Changes type="added">
     - Up and down navigation in search dialog
     - Enter (return) to select in search dialog
@@ -141,7 +195,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.6.0" title="New Feature Card Groups with arrays for more Flexible Content">
+<div className="sr-only">
+### v 1.6.0
+</div>
+
+<Release version="1.6.0" date="2025-02-21" title="New Feature Card Groups with arrays for more Flexible Content">
   <Changes type="added">
     - Card Groups Components
     - Props: href to url link
@@ -151,7 +209,7 @@ This changelog contains a list of all the changes made to the DocuBook template.
   <Changes type="improved">
     - Card props styling
     - Compatibility for Cards components
-    - {children} support for card content
+    - Support for children props in card content
   </Changes>
 
   <Changes type="removed">
@@ -159,7 +217,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.5.0" title="Minor Update - improved features and responsiveness on all devices">
+<div className="sr-only">
+### v 1.5.0
+</div>
+
+<Release version="1.5.0" date="2025-02-18" title="Minor Update - improved features and responsiveness on all devices">
   <Changes type="added">
     - New dialog footer on searchbox above medium screens
     - Icon X for close dialog on searchbox (ESC key on medium screen)
@@ -182,9 +244,13 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.4.2" title="Complex Content for Accordion Component props {children}">
+<div className="sr-only">
+### v 1.4.2
+</div>
+
+<Release version="1.4.2" date="2025-02-16" title="Complex Content for Accordion Component props children">
   <Changes type="added">
-    - New Props with {children} in accordion
+    - New Props with children in accordion
     - Compatibility for markdown in accordion
     - Nested components inside an accordion
     - New icon on note components
@@ -206,7 +272,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.4.0" title="Floating Button Version with Dynamic Tag {version} on Changelog page">
+<div className="sr-only">
+### v 1.4.0
+</div>
+
+<Release version="1.4.0" date="2025-02-11" title="Floating Button Version with Dynamic Tag version on Changelog page">
   <Changes type="added">
     - New components / changelog floating-version.tsx
     - Button popover to open version-toc below large screens
@@ -222,7 +292,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.3.8" title="Responsive Table of Content">
+<div className="sr-only">
+### v 1.3.8
+</div>
+
+<Release version="1.3.8" date="2025-02-08" title="Responsive Table of Content">
   <Changes type="added">
     - Components terminal MagicUI
     - Components card Shadcn
@@ -239,7 +313,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.3.6" title="Appears more modern editor for Docu Play">
+<div className="sr-only">
+### v 1.3.6
+</div>
+
+<Release version="1.3.6" date="2025-02-01" title="Appears more modern editor for Docu Play">
 
   <Changes type="added">
     - Line Number for editor
@@ -253,7 +331,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.3.5" title="It's Easy to Write Markdown with Playground">
+<div className="sr-only">
+### v 1.3.5
+</div>
+
+<Release version="1.3.5" date="2025-01-30" title="It's Easy to Write Markdown with Playground">
 
   <Changes type="added">
     - New Playground Page
@@ -267,7 +349,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.3.1" title="Snippet Feature to Easily Write Markdown and Call DocuBook Components">
+<div className="sr-only">
+### v 1.3.1
+</div>
+
+<Release version="1.3.1" date="2025-01-20" title="Snippet Feature to Easily Write Markdown and Call DocuBook Components">
 
   <Changes type="added">
     - New Feature Snippet for Markdown Components
@@ -279,7 +365,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.3.0" title="Release Note Feature to Make it Easier to Write Changelogs">
+<div className="sr-only">
+### v 1.3.0
+</div>
+
+<Release version="1.3.0" date="2024-12-31" title="Release Note Feature to Make it Easier to Write Changelogs">
   <Changes type="added">
     - New Release Note Feature
     - New Layout for Changelog page
@@ -310,7 +400,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.2.0" title="New Accordion Component: Support content plain text, html and all markdown component">
+<div className="sr-only">
+### v 1.2.0
+</div>
+
+<Release version="1.2.0" date="2024-12-22" title="New Accordion Component: Support content plain text, html and all markdown component">
   <Changes type="added">
     - Add New Accordion Component
   </Changes>
@@ -321,7 +415,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.1.0" title="Minor Update: Easily manage set up with docu.json">
+<div className="sr-only">
+### v 1.1.0
+</div>
+
+<Release version="1.1.0" date="2024-12-15" title="Minor Update: Easily manage set up with docu.json">
   <Changes type="added">
     - Add docu.json file
     - Add openGraph (title, description, image)
@@ -338,7 +436,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.0.7" title="Easily updates your DocuBook Version with CLI npx update_docu">
+<div className="sr-only">
+### v 1.0.7
+</div>
+
+<Release version="1.0.7" date="2024-12-14" title="Easily updates your DocuBook Version with CLI npx update_docu">
   <Changes type="added">
     - CLI npx update_docu (update features into docubook existing directory)
     - Playground (easily to written content)
@@ -358,7 +460,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.0.6" title="New Components, Fix and Improvement">
+<div className="sr-only">
+### v 1.0.6
+</div>
+
+<Release version="1.0.6" date="2024-11-24" title="New Components, Fix and Improvement">
   <Changes type="added">
     - New Card component
     - New Tooltips component
@@ -374,7 +480,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.0.5" title="Add New Features and Improvement for this version">
+<div className="sr-only">
+### v 1.0.5
+</div>
+
+<Release version="1.0.5" date="2024-11-16" title="Add New Features and Improvement for this version">
   <Changes type="added">
     - New Youtube component
     - Edit this page - easily manage directory content via the github repo
@@ -386,7 +496,11 @@ This changelog contains a list of all the changes made to the DocuBook template.
   </Changes>
 </Release>
 
-<Release version="1.0.0" title="Initial release of DocuBook to create interactive nested docs with MDX">
+<div className="sr-only">
+### v 1.0.0
+</div>
+
+<Release version="1.0.0" date="2024-11-10" title="Initial release of DocuBook to create interactive nested docs with MDX">
   <Changes type="added">
     - Initial release of DocuBook
     - Basic documentation structure
