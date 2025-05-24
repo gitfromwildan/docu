@@ -186,6 +186,8 @@ export type Author = {
   handleUrl: string;
 };
 
+// Blog related types and functions have been removed
+/*
 export type BlogMdxFrontmatter = BaseMdxFrontmatter & {
   date: string;
   authors: Author[];
@@ -199,20 +201,26 @@ export async function getAllBlogStaticPaths() {
     return res.map((file) => file.split(".")[0]);
   } catch (err) {
     console.log(err);
+    return [];
   }
 }
+
 export async function getAllBlogs() {
   const blogFolder = path.join(process.cwd(), "/contents/blogs/");
   const files = await fs.readdir(blogFolder);
   const uncheckedRes = await Promise.all(
     files.map(async (file) => {
-      if (!file.endsWith(".mdx")) return undefined;
-      const filepath = path.join(process.cwd(), `/contents/blogs/${file}`);
-      const rawMdx = await fs.readFile(filepath, "utf-8");
-      return {
-        ...justGetFrontmatterFromMD<BlogMdxFrontmatter>(rawMdx),
-        slug: file.split(".")[0],
-      };
+      try {
+        const filepath = path.join(process.cwd(), `/contents/blogs/${file}`);
+        const rawMdx = await fs.readFile(filepath, "utf-8");
+        return {
+          ...justGetFrontmatterFromMD<BlogMdxFrontmatter>(rawMdx),
+          slug: file.split(".")[0],
+        };
+      } catch (err) {
+        console.log(err);
+        return null;
+      }
     })
   );
   return uncheckedRes.filter((it) => !!it) as (BlogMdxFrontmatter & {
@@ -221,11 +229,13 @@ export async function getAllBlogs() {
 }
 
 export async function getBlogForSlug(slug: string) {
-  const blogFile = path.join(process.cwd(), "/contents/blogs/", `${slug}.mdx`);
   try {
+    const blogFile = path.join(process.cwd(), "/contents/blogs/", `${slug}.mdx`);
     const rawMdx = await fs.readFile(blogFile, "utf-8");
     return await parseMdx<BlogMdxFrontmatter>(rawMdx);
-  } catch {
-    return undefined;
+  } catch (err) {
+    console.log(err);
+    return null;
   }
 }
+*/

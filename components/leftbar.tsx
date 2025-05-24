@@ -11,7 +11,7 @@ import { Logo, NavMenu } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import { AlignLeftIcon, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { FooterButtons } from "@/components/footer";
-import { DialogTitle } from "@/components/ui/dialog";
+import { DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import DocsMenu from "@/components/docs-menu";
 import { ModeToggle } from "@/components/theme-toggle";
@@ -69,7 +69,10 @@ export function SheetLeftbar() {
         </Button>
       </SheetTrigger>
       <SheetContent className="flex flex-col gap-4 px-0" side="left">
-        <DialogTitle className="sr-only">Menu</DialogTitle>
+        <DialogTitle className="sr-only">Navigation Menu</DialogTitle>
+        <DialogDescription className="sr-only">
+          Main navigation menu with links to different sections
+        </DialogDescription>
         <SheetHeader>
           <SheetClose className="px-5" asChild>
             <span className="px-2"><Logo /></span>

@@ -51,6 +51,7 @@ export function Mascot({ size = 220, className = "" }: MascotProps) {
           src="/images/mascot.png"
           alt="Mascot Light"
           fill
+          sizes="(max-width: 768px) 300px, 400px"
           className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
             isDark ? "opacity-0" : "opacity-100"
           }`}
@@ -61,6 +62,7 @@ export function Mascot({ size = 220, className = "" }: MascotProps) {
           src="/images/mascot.png"
           alt="Mascot Dark"
           fill
+          sizes="(max-width: 768px) 300px, 400px"
           className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
             isDark ? "opacity-100" : "opacity-0"
           }`}
