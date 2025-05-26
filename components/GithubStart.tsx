@@ -7,7 +7,7 @@ const GitHubStarButton: React.FC = () => {
   const [stars, setStars] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/gitfromwildan/docubook')
+    fetch('https://api.github.com/repos/DocuBook/docubook')
       .then((res) => res.json())
       .then((data) => {
         if (data.stargazers_count !== undefined) {
@@ -22,7 +22,7 @@ const GitHubStarButton: React.FC = () => {
 
   return (
     <Link
-      href="https://github.com/gitfromwildan/docubook"
+      href="https://github.com/DocuBook/docubook"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground border no-underline"
