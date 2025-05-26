@@ -58,7 +58,7 @@
         "title": "Vercel",
         "description": "Deploy your DocuBook app with zero configuration.",
         "image": "/images/vercel.png",
-        "url": "https://vercel.com/import/project?template=https://github.com/gitfromwildan/docubook"
+        "url": "https://vercel.com/import/project?template=https://github.com/DocuBook/docubook"
         }
     },
     "routes": [
