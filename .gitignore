@@ -25,6 +25,7 @@ out/
 
 # Production
 /build
+/themes
 
 # Environment variables
 .env*.local

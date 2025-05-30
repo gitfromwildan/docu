@@ -64,8 +64,9 @@ export function FooterButtons() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={item.name}
+            className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            <IconComponent className="w-4 h-4 text-gray-800 transition-colors dark:text-gray-400 hover:text-primary" />
+            <IconComponent className="w-4 h-4" />
           </Link>
         );
       })}
