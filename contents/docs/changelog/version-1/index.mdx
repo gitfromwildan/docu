@@ -1,11 +1,45 @@
 ---
 title: Release Version 1.0+
 description: List of latest changes and updates on DocuBook
-date: 24-05-2025
+date: 27-07-2025
 ---
 
 <Note type="note" title="Version History">
   This changelog contains a list of all the changes made to the DocuBook template. It will be updated with each new release and will include information about new features, bug fixes, and other improvements.
+</Note>
+
+<div className="sr-only">
+### v 1.13.9
+</div>
+
+<Release version="1.13.9" date="2025-07-27" title="Code Cleanup & Stability Improvements">
+  <Changes type="added">
+    - Added proper type definitions for unist-util-visit
+    - Added .eslintrc.json configuration file
+    - Added proper type checking for node values in markdown processing
+    - Added CLI using @docubook/cli
+  </Changes>
+  <Changes type="improved">
+    - Enhanced type safety in lib/markdown.ts with proper TypeScript interfaces
+    - Converted interface extensions to type aliases in UI components for consistency
+    - Improved code organization across multiple files
+  </Changes>
+  <Changes type="fixed">
+    - Fixed potential null reference in markdown.ts when processing code blocks
+    - Updated import for MDXRemote in mdx-provider.tsx
+    - Optimized event listener cleanup in toc-observer.tsx
+  </Changes>
+  <Changes type="deprecated">
+    - CLI @docubook/create when version 1.13.9 is no longer supported
+  </Changes>
+  <Changes type="removed">
+    - Removed unused state and variables in toc-observer.tsx
+    - Removed unused imports for cleaner codebase
+  </Changes>
+</Release>
+
+<Note type="warning" title="Warning">
+  CLI @docubook/create when version 1.13.9 is no longer supported
 </Note>
 
 <div className="sr-only">

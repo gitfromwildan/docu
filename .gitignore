@@ -25,7 +25,6 @@ out/
 
 # Production
 /build
-/themes
 
 # Environment variables
 .env*.local
@@ -61,6 +60,9 @@ Thumbs.db
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# DocuBook
+/themes
 
 # Package managers
 package-lock.json

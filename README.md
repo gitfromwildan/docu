@@ -16,7 +16,7 @@ Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=h
 ## Installation
 
 ```bash
-npx @docubook/create@latest
+npx @docubook/cli@latest
 ```
 
 #### command output
