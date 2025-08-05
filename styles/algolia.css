@@ -39,6 +39,7 @@
   height: 40px;
   color: hsl(var(--muted-foreground)); /* Use muted text color for the placeholder */
   transition: width 0.3s ease; /* Transisi untuk perubahan lebar */
+  margin:0;
 }
 
 .docsearch .DocSearch-Button:hover {
