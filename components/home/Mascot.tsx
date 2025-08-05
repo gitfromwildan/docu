@@ -22,7 +22,7 @@ type MascotProps = {
   className?: string
 }
 
-export function Mascot({ size = 400, className = "" }: MascotProps) {
+export function Mascot({ size = 200, className = "" }: MascotProps) {
   const [isMounted, setIsMounted] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
 
