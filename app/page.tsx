@@ -16,7 +16,7 @@ export default function Home() {
       <Link
         href="/docs/changelog/version-1" className="flex items-center gap-2 py-6">
         <InteractiveHoverButton>
-            DocuBook v1.14.0
+            DocuBook v1.15.0
         </InteractiveHoverButton>
       </Link>
       <div className="w-full max-w-[800px] pb-8">
@@ -39,15 +39,15 @@ export default function Home() {
           Get Started
         </Link>
         <Link
-          href="/playground"
+          href="https://www.youtube.com/channel/UCWRCKHQCS-LCjd2WfDJCvRg?sub_confirmation=1"
+          target="_blank"
           className={buttonVariants({
             variant: "secondary",
-            className:
-              "px-6 bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700",
+            className: "px-6 bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700",
             size: "lg",
           })}
         >
-          Playground
+          Subscribe Now
         </Link>
       </div>
       <CopyCommand />

@@ -27,7 +27,7 @@ export function Navbar() {
               <NavMenu />
             </div>
             <Separator className="hidden lg:flex my-4 h-9" orientation="vertical" />
-            <Search />
+            <Search type="algolia"/>
             <GitHubStarButton />
         </div>
       </div>

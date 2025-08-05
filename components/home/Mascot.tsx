@@ -1,10 +1,9 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { useTheme } from "next-themes"
+import Image from "next/image"
 import { IconCloud } from "@/components/ui/icon-cloud"
 import { Skeleton } from "@/components/ui/skeleton"
-import Image from "next/image"
 
 const slugs = [
   "typescript", "javascript", "react", "tailwindcss", "docker", "git", "gitlab", "nodedotjs", "lucide", "npm", "pnpm", "deno"
@@ -15,58 +14,62 @@ const images = slugs.map(
 )
 
 type MascotProps = {
+  /**
+   * The size (width) of the mascot image container in pixels.
+   * @default 400
+   */
   size?: number
   className?: string
 }
 
-export function Mascot({ size = 220, className = "" }: MascotProps) {
-  const { theme, systemTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+export function Mascot({ size = 400, className = "" }: MascotProps) {
+  const [isMounted, setIsMounted] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    setIsMounted(true)
   }, [])
+  
+  // const { theme, systemTheme } = useTheme() // <-- 2. REMOVE THIS LINE
 
-  if (!mounted) return null
-
-  const currentTheme = theme === "system" ? systemTheme : theme
-  const isDark = currentTheme === "dark"
-  const handleLoad = () => {
-    setTimeout(() => {
-      setIsLoaded(true)
-    }, 500)
+  if (!isMounted) {
+    // Render a skeleton on the server and during initial hydration to prevent layout shift
+    return (
+        <div 
+            className={className} 
+            style={{ width: `${size}px`, height: `${size * 1.25}px` }}
+        >
+            <Skeleton className="h-full w-full rounded-full" />
+        </div>
+    )
   }
-
+  
   return (
     <div className={`relative flex items-center justify-center ${className}`}>
-      <div className="absolute  bottom-[140px] sm:-right-[120px] sm:-top-[60px] z-0 w-[380px] h-[380px] pointer-events-none">
+      <div className="pointer-events-none absolute bottom-[140px] z-0 h-[380px] w-[380px] sm:-right-[120px] sm:-top-[60px]">
         <IconCloud images={[...images,"/images/bun.svg","/images/nextjs.svg","/images/github.svg","/images/mdx.svg","/images/shadcn.svg"]} />
       </div>
-      <div className="relative z-10 w-[300px] h-[380px] sm:w-[400px] sm:h-[500px]">
+
+      <div
+        className="relative z-10"
+        style={{
+          width: `${size}px`,
+          // Using an aspect ratio based on the original sm size (400x500)
+          height: `${size * 1.25}px`, 
+        }}
+      >
         {!isLoaded && (
-          <Skeleton className="absolute inset-0 w-full h-full rounded-full" />
+          <Skeleton className="absolute inset-0 h-full w-full rounded-full" />
         )}
         <Image
           src="/images/mascot.png"
-          alt="Mascot Light"
+          alt="Mascot"
           fill
-          sizes="(max-width: 768px) 300px, 400px"
-          className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
-            isDark ? "opacity-0" : "opacity-100"
+          sizes={`(max-width: 768px) 300px, ${size}px`}
+          className={`transition-opacity duration-300 ease-in-out ${
+            isLoaded ? "opacity-100" : "opacity-0"
           }`}
-          onLoad={handleLoad}
-          priority
-        />
-        <Image
-          src="/images/mascot.png"
-          alt="Mascot Dark"
-          fill
-          sizes="(max-width: 768px) 300px, 400px"
-          className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
-            isDark ? "opacity-100" : "opacity-0"
-          }`}
-          onLoad={handleLoad}
+          onLoad={() => setIsLoaded(true)}
           priority
         />
       </div>
