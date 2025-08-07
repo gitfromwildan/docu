@@ -84,32 +84,37 @@ copy the entire crawler code below :
 
 ```json showLineNumbers {2-3,7,13-14}
 new Crawler({
-  appId: "your_app_id", // change this to your own appId
-  apiKey: "your_api_key", // before editing or copying this code, make sure to save your apiKey first
+  appId: "your_appId",
+  apiKey: "your_apiKey",
   rateLimit: 8,
   maxUrls: 5000,
   schedule: "on the 22 day of the month",
-  startUrls: ["https://docubook.pro"], // change this to your own domain
+  startUrls: ["https://docubook.pro"], // Replace with your domain
   ignoreQueryParams: ["source", "utm_*"],
   actions: [
     {
-      indexName: "docs_pages", // make sure this matches NEXT_PUBLIC_ALGOLIA_DOCSEARCH_INDEX_NAME
+      indexName: "docs_pages", // Make sure this name matches the one in your .env file
       pathsToMatch: [
-        "https://docubook.pro/docs/**",
-        "https://www.docubook.pro/docs/**",
+        "https://docubook.pro/docs/**", // Replace with your domain
+        "https://www.docubook.pro/docs/**", // Replace with your domain
       ],
       recordExtractor: ({ $, helpers }) => {
+        // Remove navigation elements and metadata before indexing
+        // This prevents "Previous/Next" and "Published on" from appearing in search results
+        $("div.grid.grid-cols-1.sm\\:grid-cols-2").remove();
+        $(".my-8").remove();
+
         return helpers.docsearch({
           recordProps: {
             lvl0: {
-              selectors: "nav button[aria-expanded='true']",
-              defaultValue: "Documentations",
+              selectors: "aside nav button[data-state='open'] h4",
+              defaultValue: "Documentation",
             },
             lvl1: ".prose h1",
             lvl2: ".prose h2",
             lvl3: ".prose h3",
-            lvl4: ".prose h4",
-            content: ".prose p, .prose li, .prose .prose-code",
+            lvl4: null,
+            content: ".prose p, .prose li, .prose code, .prose table",
           },
           indexHeadings: true,
         });
@@ -117,7 +122,7 @@ new Crawler({
     },
   ],
   initialIndexSettings: {
-    docs_pages: { // make sure this matches NEXT_PUBLIC_ALGOLIA_DOCSEARCH_INDEX_NAME
+    docs_pages: { // Make sure this name matches the one in your .env file
       distinct: true,
       attributeForDistinct: "url",
       searchableAttributes: [
@@ -131,7 +136,7 @@ new Crawler({
         "desc(custom_ranking.importance)",
         "asc(custom_ranking.position)",
       ],
-      attributesForFaceting: ["hierarchy.lvl0"],
+      attributesForFaceting: ["hierarchy.lvl0", "hierarchy.lvl1"],
     },
   },
 });
