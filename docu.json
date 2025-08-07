@@ -81,6 +81,13 @@
                 { "title": "Coffee", "href": "/coffee" },
                 { "title": "llms.txt", "href": "/llms" }
             ]
+        },
+        {
+          "title": "Search",
+          "href": "/search",
+          "items": [
+              { "title": "Algolia", "href": "/algolia" }
+          ]
         }
       ]
     },
