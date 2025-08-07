@@ -43,7 +43,7 @@
       "favicon": "/favicon.ico"
     },
     "repository": {
-      "url": "https://github.com/DocuBook/docubook",
+      "url": "https://github.com/gitfromwildan/docu",
       "editPathTemplate": "/blob/main/{filePath}",
       "editLink": true
     },
@@ -129,7 +129,7 @@
         "title": "Changelog"
       },
       "items": [
-        { "title": "Version 1.0+", "href": "/version-1" }
+        { "title": "Version 1.0.+", "href": "/version-1" }
       ]
     }
   ]
