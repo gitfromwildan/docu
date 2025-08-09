@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docubook.pro/docu.schema.json",
     "navbar": {
       "logo": {
         "src": "/images/docu.svg",
@@ -123,15 +124,12 @@
     {
       "title": "Release",
       "href": "/changelog",
-      "noLink": true,
+      "noLink": false,
       "context": {
         "icon": "History",
         "description": "Updates and changes",
         "title": "Changelog"
-      },
-      "items": [
-        { "title": "Version 1.0.+", "href": "/version-1" }
-      ]
+      }
     }
   ]
 }

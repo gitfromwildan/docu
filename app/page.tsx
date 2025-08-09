@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center px-2 py-8 text-center sm:py-36">
       <Link
-        href="/docs/changelog/version-1" className="flex items-center gap-2 py-6">
+        href="/docs/changelog" className="flex items-center gap-2 py-6">
         <InteractiveHoverButton>
             DocuBook v1.15.2
         </InteractiveHoverButton>
