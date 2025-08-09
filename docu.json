@@ -62,7 +62,7 @@
       "href": "/getting-started",
       "noLink": true,
       "context": {
-        "icon": "Book",
+        "icon": "BookOpen",
         "description": "Set up your Documentation",
         "title": "Guides"
       },
@@ -72,6 +72,7 @@
         { "title": "Quick Start Guide", "href": "/quick-start-guide" },
         { "title": "Project Structure", "href": "/project-structure" },
         { "title": "Customize", "href": "/customize" },
+        { "title": "Setup docu.json", "href": "/docu-json" },
         {
             "title": "Theme Colors",
             "href": "/theme-colors",
