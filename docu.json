@@ -104,6 +104,7 @@
       },
       "items": [
         { "title": "Accordion", "href": "/accordion" },
+        { "title": "Accordion Group", "href": "/accordion-group" },
         { "title": "Button", "href": "/button" },
         { "title": "Card", "href": "/card" },
         { "title": "Card Group", "href": "/card-group" },
