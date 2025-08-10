@@ -124,7 +124,7 @@
     {
       "title": "Release",
       "href": "/changelog",
-      "noLink": false,
+      "noLink": true,
       "context": {
         "icon": "History",
         "description": "Updates and changes",
