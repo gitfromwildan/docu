@@ -40,7 +40,7 @@ const Accordion: React.FC<AccordionProps> = ({
             </button>
 
             {isOpen && (
-                <div className="px-4 py-3 border-t dark:bg-muted/50 bg-muted/15">
+                <div className="px-4 py-3 border-t dark:bg-muted/20 bg-muted/15">
                     {children}
                 </div>
             )}
